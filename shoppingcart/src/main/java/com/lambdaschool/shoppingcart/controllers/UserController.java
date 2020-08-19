@@ -1,6 +1,8 @@
 package com.lambdaschool.shoppingcart.controllers;
 
+import com.lambdaschool.shoppingcart.exceptions.ResourceNotFoundException;
 import com.lambdaschool.shoppingcart.models.User;
+import com.lambdaschool.shoppingcart.services.UserAuditing;
 import com.lambdaschool.shoppingcart.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +28,9 @@ public class UserController
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserAuditing userAuditing;
+
     @GetMapping(value = "/users", produces = {"application/json"})
     public ResponseEntity<?> listAllUsers()
     {
@@ -43,6 +48,15 @@ public class UserController
         return new ResponseEntity<>(u,
                                     HttpStatus.OK);
     }
+
+    @GetMapping(value = "/myinfo",
+    produces = {"application/json"})
+    public ResponseEntity<?> getUserInfo()
+    {
+    User u = userService.findByName(userAuditing.getCurrentAuditor()
+        .orElseThrow(() -> new ResourceNotFoundException("Current Auditor not found!")));
+    return new ResponseEntity<>(u, HttpStatus.OK);
+}
 
     @PostMapping(value = "/user", consumes = {"application/json"})
     public ResponseEntity<?> addUser(@Valid @RequestBody User newuser)

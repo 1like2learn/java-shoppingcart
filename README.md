@@ -541,32 +541,32 @@ STATUS OK
   * [x] Add and update the necessary configuration files
 * [ ] The initial endpoints are affected by security as follows
   * [x] http://localhost:2019/users/users
-    * [ ] Only users with role Admin can access this endpoint
+    * [x] Only users with role Admin can access this endpoint
   * [x] http://localhost:2019/users/user/1
-    * [ ] Only users with role Admin can access this endpoint
+    * [x] Only users with role Admin can access this endpoint
   * [x] POST http://localhost:2019/users/user
-    * [ ] Only users with role Admin can access this endpoint
+    * [x] Only users with role Admin can access this endpoint
   * [x] DELETE http://localhost:2019/users/user/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] http://localhost:2019/carts/user
-    * [ ] Drop the path variable and return the information for authenticated user
+    * [x] Only users with role Admin can access this endpoint
+  * [x] http://localhost:2019/carts/user
+    * [x] Drop the path variable and return the information for authenticated user
   * [x] http://localhost:2019/carts/cart/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] POST http://localhost:2019/carts/create/product/1
-    * [ ] Drop the user path variable and create a new cart for the authenticated user
+    * [x] Only users with role Admin can access this endpoint
+  * [x] POST http://localhost:2019/carts/create/product/1
+    * [x] Drop the user path variable and create a new cart for the authenticated user
   * [x] PUT http://localhost:2019/carts/update/cart/1/product/1
-    * [ ] Any user with role Admin can access this endpoint. Any user with role User can only access carts that they own. This would similar to the function in our usermodel under OAuth2 for updating a user using the helper.isAuthorizedToMakeChange() method. You can get the current authenticated use from the userAuditor field!
-  * [ ] DELETE http://localhost:2019/carts/delete/cart/1/product/1
-    * [ ] Any user with role Admin can access this endpoint. Any user with role User can only access carts that they own.  This would similar to the function in our usermodel under OAuth2 for updating a user using the helper.isAuthorizedToMakeChange() method. You can get the current authenticated use from the userAuditor field!
-  * [ ] http://localhost:2019/products/products
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] http://localhost:2019/products/product/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] POST http://localhost:2019/products/product
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] PUT http://localhost:2019/products/product/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] DELETE http://localhost:2019/products/product/1
+    * [x] Any user with role Admin can access this endpoint. Any user with role User can only access carts that they own. This would similar to the function in our usermodel under OAuth2 for updating a user using the helper.isAuthorizedToMakeChange() method. You can get the current authenticated use from the userAuditor field!
+  * [x] DELETE http://localhost:2019/carts/delete/cart/1/product/1
+    * [x] Any user with role Admin can access this endpoint. Any user with role User can only access carts that they own.  This would similar to the function in our usermodel under OAuth2 for updating a user using the helper.isAuthorizedToMakeChange() method. You can get the current authenticated use from the userAuditor field!
+  * [x] http://localhost:2019/products/products
+    * [x] Only users with role Admin can access this endpoint
+  * [x] http://localhost:2019/products/product/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] POST http://localhost:2019/products/product
+    * [x] Only users with role Admin can access this endpoint
+  * [x] PUT http://localhost:2019/products/product/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] DELETE http://localhost:2019/products/product/1
 * [ ] Add a new endpoint
   * [ ] http://localhost:2019/users/myinfo
     * [ ] Any authenticated user can access this endpoint and it will return the authenticated users information
