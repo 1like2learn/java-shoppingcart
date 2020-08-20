@@ -21,8 +21,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 
-        resources.resourceId(RESOURCE_ID)
-            .stateless(false);
+        resources.resourceId(RESOURCE_ID).stateless(false);
     }
 
     @Override
@@ -40,36 +39,20 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 "/webjars/**",
                 "/createnewuser")
             .permitAll()
-            //Only Admins can alter user data
-            .antMatchers(HttpMethod.POST, "/users/**")
+            .antMatchers("/users/**",
+                "/products/**",
+                "/carts/**",
+                "/roles/**")
             .hasAnyRole("ADMIN")
-            .antMatchers(HttpMethod.DELETE, "/users/**")
-            .hasAnyRole("ADMIN")
-            .antMatchers(HttpMethod.PUT, "/users/**")
-            .hasAnyRole("ADMIN")
-            .antMatchers(HttpMethod.GET, "users/users")
-            .hasAnyRole("ADMIN")
-            .antMatchers(HttpMethod.GET, "users/user/**")
-            .hasAnyRole("ADMIN")
-            .antMatchers("carts/cart/**")
-            .hasAnyRole("ADMIN")
-            .antMatchers("carts/create/**")
-            .hasAnyRole("ADMIN")
-            .antMatchers("products/**")
-            .hasAnyRole("ADMIN")
-            .antMatchers("/carts/user/**")
-            .hasAnyRole("ADMIN")
-
+            //users and admins can access these endpoints
             .antMatchers(HttpMethod.GET, "/carts/user")
-            .hasAnyRole("ADMIN", "USER")
+            .hasAnyRole("USER")
             .antMatchers(HttpMethod.POST, "/carts/create/product")
-            .hasAnyRole("ADMIN", "USER")
+            .hasAnyRole("USER")
             .antMatchers("/users/myinfo")
-            .hasAnyRole("ADMIN", "USER")
+            .hasAnyRole("USER")
             .antMatchers("/oauth/revoke-token", "/logout")
             .authenticated()
-            .antMatchers("/roles/**")
-            .hasAnyRole("ADMIN")
             .and()
             .exceptionHandling()
             .accessDeniedHandler(new OAuth2AccessDeniedHandler());

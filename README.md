@@ -530,7 +530,7 @@ STATUS OK
 
 ### MVP
 
-* [ ] Add OAuth2 Security to the application
+* [x] Add OAuth2 Security to the application
   * [x] Add the necessary dependencies
   * [x] Add the models to represent Roles and the join table between Roles and Users
     * [x] Two roles will be used - Admin for access to all of the system and User for access to only the authenticated user's information

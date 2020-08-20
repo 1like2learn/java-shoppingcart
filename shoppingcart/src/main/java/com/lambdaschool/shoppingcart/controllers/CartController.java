@@ -91,8 +91,7 @@ public class CartController
     }
 
     @PutMapping(value = "/update/cart/{cartid}/product/{productid}")
-    public ResponseEntity<?> updateCart(@PathVariable long cartid,
-                                        @PathVariable long productid)
+    public ResponseEntity<?> updateCart(@PathVariable long cartid, @PathVariable long productid)
     {
         User user = userService.findByName(userAuditing.getCurrentAuditor()
             .orElseThrow(() -> new ResourceNotFoundException("Role id current Auditor not found!")));
@@ -107,9 +106,7 @@ public class CartController
 
         Boolean userHasAccessToCart = false;
         for(Cart c : cartList) {
-            if (c.getUser()
-                .getUserid() == dataCart.getUser()
-                .getUserid()) {
+            if (c.getCartid() == cartid) {
 
                 userHasAccessToCart = true;
             }

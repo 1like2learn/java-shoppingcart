@@ -23,8 +23,8 @@ import javax.annotation.Resource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //Lets us customize the auth manager but the defaults are usually fine
-    @Bean
     @Override
+    @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
 
         return super.authenticationManagerBean();
